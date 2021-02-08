@@ -1,4 +1,5 @@
 'use strict';
+let n = 10;
 function gameBot(){
   function getRandom(min, max) {
     min = Math.ceil(min);
@@ -15,15 +16,29 @@ function gameBot(){
         alert('Введи число');
         getNumber();
     } else if (+userEnterNumber === randomNumber){
-        alert('Поздравляю, Вы угадали!!!'); 
+        let newGame = confirm(`Поздравляю, Вы угадали!!! Хотели бы сыграть еще?`); 
+        if(newGame === true) {
+          n = 10;
+          getNumber();
+        } else {
+          alert('Пока');
+        }
     } else if (+userEnterNumber > 100) {
-        alert('Загаданное число меньше');
-        getNumber();
+        alert(`Загаданное число меньше, осталось попыток ${--n}`);
+        if(n < 1){
+          alert('Игра закончена');
+        }else{
+          getNumber();
+        }
     } else if(+userEnterNumber < 1){
-        alert('Загаданное число больше');
-        getNumber();
+        alert(`Загаданное число больше, осталось попыток ${--n}`);
+        if(n < 1){
+          alert('Игра закончена');
+        }else{
+          getNumber();
+        }
     } else if(+userEnterNumber !== randomNumber){
-      alert('Вы проиграли(((');
+      alert(`Вы проиграли(((`);
     }
     }
     getNumber();
