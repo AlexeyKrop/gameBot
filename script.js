@@ -1,5 +1,5 @@
 'use strict';
-let randomNumberResult;
+
 
 
 function gameBot(min,max) {
@@ -33,20 +33,19 @@ function gameBot(min,max) {
             alert('Приходи еще');
           }
       } else if(+userEnterNumber > 100){
-          alert(`Загаданное число меньше, осталось попыток ${--n}`);
+          alert(`Загаданное число меньше 100, осталось попыток ${--n}`);
           getNumberOfAttempts();
       } else if(+userEnterNumber < 1){
-          alert(`Загаданное число меньше, осталось попыток ${--n}`);
+          alert(`Загаданное число больше 1, осталось попыток ${--n}`);
           getNumberOfAttempts();
       } else if(+userEnterNumber !== randomNumber){
       alert(`Осталось попыток ${--n}`);
       getNumberOfAttempts();
     }
-    gameBot(1,100);
   }
   return MyFunc;
 } 
-randomNumberResult = gameBot(1,100);
+let randomNumberResult = gameBot(1,100);
 randomNumberResult();
  
 
